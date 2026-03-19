@@ -8,8 +8,11 @@ const originMap = {
   "Arameiskt": "aramaic"
 };
 
-export function renderElements( elems=[] ) {
-    const main = document.querySelector( "main" );
+const main = document.querySelector( "main" );
+
+export function renderElements( elems = [] ) {
+    main.replaceChildren();    
+
     elems.forEach(elem => {
         const elemDiv = document.createElement( "div" );
         elemDiv.classList.add("elemBox");
@@ -38,11 +41,4 @@ export function renderElements( elems=[] ) {
         elemDiv.appendChild( elemNameday );
 
     });
-}
-
-function clearPage (){
-    const containers = document.querySelectorAll( ".taskContainer") ;
-    containers.forEach(container=> {
-        container.replaceChildren();
-    })
 }

@@ -1,34 +1,446 @@
 {
   "names": [
-    { "id": 1, "name": "Erik", "origin": "Nordiskt", "nameday": "18 maj", "meaning": "Den evige härskaren" },
-    { "id": 2, "name": "Anna", "origin": "Hebreiskt", "nameday": "9 december", "meaning": "Nåd" },
-    { "id": 3, "name": "Lars", "origin": "Latinskt", "nameday": "10 augusti", "meaning": "Den lagerkrönta" },
-    { "id": 4, "name": "Maria", "origin": "Hebreiskt", "nameday": "15 augusti", "meaning": "Den älskade" },
-    { "id": 5, "name": "Karl", "origin": "Germanskt", "nameday": "28 januari", "meaning": "Den frie mannen" },
-    { "id": 6, "name": "Kristina", "origin": "Grekiskt", "nameday": "24 juli", "meaning": "Kristi efterföljare" },
-    { "id": 7, "name": "Johan", "origin": "Hebreiskt", "nameday": "24 juni", "meaning": "Gud är nådig" },
-    { "id": 8, "name": "Eva", "origin": "Hebreiskt", "nameday": "24 december", "meaning": "Den levande" },
-    { "id": 9, "name": "Anders", "origin": "Grekiskt", "nameday": "30 november", "meaning": "Den manlige" },
-    { "id": 10, "name": "Birgitta", "origin": "Keltiskt", "nameday": "7 oktober", "meaning": "Den höga, den starka" },
-    { "id": 11, "name": "Magnus", "origin": "Latinskt", "nameday": "19 augusti", "meaning": "Den store" },
-    { "id": 12, "name": "Sara", "origin": "Hebreiskt", "nameday": "19 september", "meaning": "Furstinna" },
-    { "id": 13, "name": "Peter", "origin": "Grekiskt", "nameday": "29 juni", "meaning": "Klippa, sten" },
-    { "id": 14, "name": "Ingrid", "origin": "Nordiskt", "nameday": "2 september", "meaning": "Ing är skön" },
-    { "id": 15, "name": "Olof", "origin": "Nordiskt", "nameday": "29 juli", "meaning": "Den helige förfadern" },
-    { "id": 16, "name": "Karin", "origin": "Grekiskt", "nameday": "25 november", "meaning": "Den rena" },
-    { "id": 17, "name": "Gustav", "origin": "Germanskt", "nameday": "1 juni", "meaning": "Gudarnas stav" },
-    { "id": 18, "name": "Helena", "origin": "Grekiskt", "nameday": "31 juli", "meaning": "Den lysande, facklan" },
-    { "id": 19, "name": "Nils", "origin": "Grekiskt", "nameday": "6 december", "meaning": "Folkets seger" },
-    { "id": 20, "name": "Margareta", "origin": "Grekiskt", "nameday": "20 juli", "meaning": "Pärla" },
-    { "id": 21, "name": "Sven", "origin": "Nordiskt", "nameday": "19 oktober", "meaning": "Ung man, gosse" },
-    { "id": 22, "name": "Elisabet", "origin": "Hebreiskt", "nameday": "19 november", "meaning": "Gud är mitt löfte" },
-    { "id": 23, "name": "Thomas", "origin": "Arameiskt", "nameday": "21 december", "meaning": "Tvillingen" },
-    { "id": 24, "name": "Elin", "origin": "Grekiskt", "nameday": "23 juni", "meaning": "Den lysande" },
-    { "id": 25, "name": "David", "origin": "Hebreiskt", "nameday": "26 december", "meaning": "Den älskade" },
-    { "id": 26, "name": "Maja", "origin": "Latinskt", "nameday": "1 maj", "meaning": "Den stora, den ärade" },
-    { "id": 27, "name": "Mikael", "origin": "Hebreiskt", "nameday": "29 september", "meaning": "Vem är som Gud?" },
-    { "id": 28, "name": "Lena", "origin": "Grekiskt", "nameday": "25 juni", "meaning": "Den lysande, facklan" },
-    { "id": 29, "name": "Daniel", "origin": "Hebreiskt", "nameday": "11 december", "meaning": "Gud är min domare" },
-    { "id": 30, "name": "Astrid", "origin": "Nordiskt", "nameday": "27 november", "meaning": "Gudarnas styrka" }
-  ]
-}
+    {
+      "id": "1",
+      "name": "Erik",
+      "origin": "Nordiskt",
+      "nameday": "18 maj",
+      "meaning": "Den evige härskaren"
+    },
+    {
+      "id": "3",
+      "name": "Lars",
+      "origin": "Latinskt",
+      "nameday": "10 augusti",
+      "meaning": "Den lagerkrönta"
+    },
+    {
+      "id": "4",
+      "name": "Maria",
+      "origin": "Hebreiskt",
+      "nameday": "15 augusti",
+      "meaning": "Den älskade"
+    },
+    {
+      "id": "5",
+      "name": "Karl",
+      "origin": "Germanskt",
+      "nameday": "28 januari",
+      "meaning": "Den frie mannen"
+    },
+    {
+      "id": "6",
+      "name": "Kristina",
+      "origin": "Grekiskt",
+      "nameday": "24 juli",
+      "meaning": "Kristi efterföljare"
+    },
+    {
+      "id": "7",
+      "name": "Johan",
+      "origin": "Hebreiskt",
+      "nameday": "24 juni",
+      "meaning": "Gud är nådig"
+    },
+    {
+      "id": "8",
+      "name": "Eva",
+      "origin": "Hebreiskt",
+      "nameday": "24 december",
+      "meaning": "Den levande"
+    },
+    {
+      "id": "9",
+      "name": "Anders",
+      "origin": "Grekiskt",
+      "nameday": "30 november",
+      "meaning": "Den manlige"
+    },
+    {
+      "id": "10",
+      "name": "Birgitta",
+      "origin": "Keltiskt",
+      "nameday": "7 oktober",
+      "meaning": "Den höga, den starka"
+    },
+    {
+      "id": "11",
+      "name": "Magnus",
+      "origin": "Latinskt",
+      "nameday": "19 augusti",
+      "meaning": "Den store"
+    },
+    {
+      "id": "12",
+      "name": "Sara",
+      "origin": "Hebreiskt",
+      "nameday": "19 september",
+      "meaning": "Furstinna"
+    },
+    {
+      "id": "13",
+      "name": "Peter",
+      "origin": "Grekiskt",
+      "nameday": "29 juni",
+      "meaning": "Klippa, sten"
+    },
+    {
+      "id": "14",
+      "name": "Ingrid",
+      "origin": "Nordiskt",
+      "nameday": "2 september",
+      "meaning": "Ing är skön"
+    },
+    {
+      "id": "15",
+      "name": "Olof",
+      "origin": "Nordiskt",
+      "nameday": "29 juli",
+      "meaning": "Den helige förfadern"
+    },
+    {
+      "id": "16",
+      "name": "Karin",
+      "origin": "Grekiskt",
+      "nameday": "25 november",
+      "meaning": "Den rena"
+    },
+    {
+      "id": "17",
+      "name": "Gustav",
+      "origin": "Germanskt",
+      "nameday": "1 juni",
+      "meaning": "Gudarnas stav"
+    },
+    {
+      "id": "18",
+      "name": "Helena",
+      "origin": "Grekiskt",
+      "nameday": "31 juli",
+      "meaning": "Den lysande, facklan"
+    },
+    {
+      "id": "19",
+      "name": "Nils",
+      "origin": "Grekiskt",
+      "nameday": "6 december",
+      "meaning": "Folkets seger"
+    },
+    {
+      "id": "20",
+      "name": "Margareta",
+      "origin": "Grekiskt",
+      "nameday": "20 juli",
+      "meaning": "Pärla"
+    },
+    {
+      "id": "21",
+      "name": "Sven",
+      "origin": "Nordiskt",
+      "nameday": "19 oktober",
+      "meaning": "Ung man, gosse"
+    },
+    {
+      "id": "22",
+      "name": "Elisabet",
+      "origin": "Hebreiskt",
+      "nameday": "19 november",
+      "meaning": "Gud är mitt löfte"
+    },
+    {
+      "id": "23",
+      "name": "Thomas",
+      "origin": "Arameiskt",
+      "nameday": "21 december",
+      "meaning": "Tvillingen"
+    },
+    {
+      "id": "24",
+      "name": "Elin",
+      "origin": "Grekiskt",
+      "nameday": "23 juni",
+      "meaning": "Den lysande"
+    },
+    {
+      "id": "25",
+      "name": "David",
+      "origin": "Hebreiskt",
+      "nameday": "26 december",
+      "meaning": "Den älskade"
+    },
+    {
+      "id": "26",
+      "name": "Maja",
+      "origin": "Latinskt",
+      "nameday": "1 maj",
+      "meaning": "Den stora, den ärade"
+    },
+    {
+      "id": "27",
+      "name": "Mikael",
+      "origin": "Hebreiskt",
+      "nameday": "29 september",
+      "meaning": "Vem är som Gud?"
+    },
+    {
+      "id": "28",
+      "name": "Lena",
+      "origin": "Grekiskt",
+      "nameday": "25 juni",
+      "meaning": "Den lysande, facklan"
+    },
+    {
+      "id": "29",
+      "name": "Daniel",
+      "origin": "Hebreiskt",
+      "nameday": "11 december",
+      "meaning": "Gud är min domare"
+    },
+    {
+      "id": "30",
+      "name": "Astrid",
+      "origin": "Nordiskt",
+      "nameday": "27 november",
+      "meaning": "Gudarnas styrka"
+      },
+    {
+      "id": "31",
+      "name": "Filip",
+      "origin": "Grekiskt",
+      "nameday": "2 maj",
+      "meaning": "Hästens vän"
+    },
+    {
+      "id": "32",
+      "name": "Agnes",
+      "origin": "Grekiskt",
+      "nameday": "21 januari",
+      "meaning": "Den rena"
+    },
+    {
+      "id": "33",
+      "name": "Henrik",
+      "origin": "Tyskt",
+      "nameday": "19 januari",
+      "meaning": "Hemmets härskare"
+    },
+    {
+      "id": "34",
+      "name": "Sofia",
+      "origin": "Grekiskt",
+      "nameday": "15 maj",
+      "meaning": "Vishet"
+    },
+    {
+      "id": "35",
+      "name": "Emil",
+      "origin": "Latinskt",
+      "nameday": "14 november",
+      "meaning": "Den ivrige"
+    },
+    {
+      "id": "36",
+      "name": "Amanda",
+      "origin": "Latinskt",
+      "nameday": "26 oktober",
+      "meaning": "Den älskvärda"
+    },
+    {
+      "id": "37",
+      "name": "Oscar",
+      "origin": "Keltiskt",
+      "nameday": "1 december",
+      "meaning": "Kärleksbarn"
+    },
+    {
+      "id": "38",
+      "name": "Rebecca",
+      "origin": "Hebreiskt",
+      "nameday": "21 mars",
+      "meaning": "Att binda"
+    },
+    {
+      "id": "39",
+      "name": "Simon",
+      "origin": "Hebreiskt",
+      "nameday": "28 oktober",
+      "meaning": "Den som hör"
+    },
+    {
+      "id": "40",
+      "name": "Lovisa",
+      "origin": "Tyskt",
+      "nameday": "25 augusti",
+      "meaning": "Berömd kämpe"
+      },
+    {
+      "id": "41",
+      "name": "Jonathan",
+      "origin": "Hebreiskt",
+      "nameday": "22 mars",
+      "meaning": "Guds gåva"
+    },
+    {
+      "id": "42",
+      "name": "Tilde",
+      "origin": "Tyskt",
+      "nameday": "19 oktober",
+      "meaning": "Mäktig i strid"
+    },
+    {
+      "id": "43",
+      "name": "Patrik",
+      "origin": "Latinskt",
+      "nameday": "17 mars",
+      "meaning": "Adelsman"
+    },
+    {
+      "id": "44",
+      "name": "Helmer",
+      "origin": "Tyskt",
+      "nameday": "16 september",
+      "meaning": "Skyddande hjälm"
+    },
+    {
+      "id": "45",
+      "name": "Felicia",
+      "origin": "Latinskt",
+      "nameday": "14 januari",
+      "meaning": "Lycklig, lyckobringande"
+    },
+    {
+      "id": "46",
+      "name": "Albin",
+      "origin": "Latinskt",
+      "nameday": "1 mars",
+      "meaning": "Den vite"
+    },
+    {
+      "id": "47",
+      "name": "Cornelia",
+      "origin": "Latinskt",
+      "nameday": "3 september",
+      "meaning": "Horn"
+    },
+    {
+      "id": "48",
+      "name": "Melker",
+      "origin": "Hebreiskt",
+      "nameday": "6 januari",
+      "meaning": "Kung"
+    },
+    {
+      "id": "49",
+      "name": "Ronja",
+      "origin": "Okänt",
+      "nameday": "9 februari",
+      "meaning": "Glänta"
+    },
+    {
+      "id": "50",
+      "name": "Vera",
+      "origin": "Ryskt",
+      "nameday": "30 maj",
+      "meaning": "Tro, sanning"
+    },
+    {
+      "id": "51",
+      "name": "Samuel",
+      "origin": "Hebreiskt",
+      "nameday": "1 september",
+      "meaning": "Gud har hört"
+    },
+    {
+      "id": "52",
+      "name": "Molly",
+      "origin": "Engelskt",
+      "nameday": "12 juli",
+      "meaning": "Upprorisk"
+    },
+    {
+      "id": "53",
+      "name": "Leon",
+      "origin": "Grekiskt",
+      "nameday": "28 juni",
+      "meaning": "Lejon"
+    },
+    {
+      "id": "54",
+      "name": "Selma",
+      "origin": "Tyskt",
+      "nameday": "4 september",
+      "meaning": "Gud skyddar"
+    },
+    {
+      "id": "55",
+      "name": "Isak",
+      "origin": "Hebreiskt",
+      "nameday": "19 december",
+      "meaning": "Han skrattar"
+    },
+    {
+      "id": "56",
+      "name": "Tyra",
+      "origin": "Nordiskt",
+      "nameday": "28 september",
+      "meaning": "Gudarnas styrka"
+    },
+    {
+      "id": "57",
+      "name": "Elvira",
+      "origin": "Spanskt",
+      "nameday": "27 maj",
+      "meaning": "Sann vän"
+    },
+    {
+      "id": "58",
+      "name": "Milton",
+      "origin": "Engelskt",
+      "nameday": "8 augusti",
+      "meaning": "Kvarnby"
+    },
+    {
+      "id": "59",
+      "name": "Stina",
+      "origin": "Grekiskt",
+      "nameday": "15 mars",
+      "meaning": "Kristi efterföljare"
+    },
+    {
+      "id": "60",
+      "name": "Douglas",
+      "origin": "Skotskt",
+      "nameday": "2 juli",
+      "meaning": "Mörkt vatten"
+    },
+    {
+      "id": "61",
+      "name": "Mira",
+      "origin": "Slaviskt",
+      "nameday": "3 februari",
+      "meaning": "Fred, frid"
+    },
+    {
+      "id": "62",
+      "name": "Hugo",
+      "origin": "Tyskt",
+      "nameday": "3 april",
+      "meaning": "Förstånd, tanke"
+    },
+    {
+      "id": "63",
+      "name": "Alva",
+      "origin": "Tyskt",
+      "nameday": "3 september",
+      "meaning": "Alv, naturväsen"
+    },
+    {
+      "id": "64",
+      "name": "Edvin",
+      "origin": "Engelskt",
+      "nameday": "11 mars",
+      "meaning": "Vänlig vinnare"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+  }

@@ -51,6 +51,11 @@ main {
     border-radius: 15px;
     margin: 0.5rem;
 }
+
+textarea {
+    resize: none;
+}
+
 .nordic { background-color: #E6F1FB; }
 .hebraic { background-color: #EEEDFE; }
 .greek { background-color: #E1F5EE; }
