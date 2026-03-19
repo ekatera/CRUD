@@ -29,8 +29,10 @@ main {
     width: 10rem;
     height: 10rem;
     margin: 0.5rem;
-    padding-left: 0.5rem;
+    padding-left: 0.7rem;
     border-radius: 7%;
+    word-break: break-word;
+    overflow-wrap: break-word;
     background-color: #ffffff;
     border: 0.2px solid #cccccc;
 }

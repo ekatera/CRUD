@@ -20,7 +20,7 @@ async function deleteElementById( name ) {
   const data = await fetchElementById( name );
 
   for (const elem of data) {
-    const res = await fetch( `${BASE_URL}/${elem.id}`, { 
+    const res = await fetch( `${BASE_URL}/${parseInt( elem.id, 10 )}`, { 
       method: 'DELETE',
       headers: {
       'Content-type': 'application/json'
@@ -42,8 +42,8 @@ async function addElement( element ) {
   }
 
   const elems = await getAll();
-  const maxId = Math.max( ...elems.map( elem => elem.id ) );
-  element.id = maxId + 1;
+  const maxId = Math.max( ...elems.map( elem => parseInt(elem.id, 10) ) );
+  element.id = (maxId + 1).toString();
 
   // request
   const res = await fetch( `${BASE_URL}`, { 
@@ -79,11 +79,12 @@ async function updateElement( element ) {
     data[0].nameday = element.nameday;
   }
 
+  const id = parseInt( data[0].id, 10 );
   // request
-  const res = await fetch( `${BASE_URL}/${data[0].id}`, { 
+  const res = await fetch( `${BASE_URL}/${id}`, { 
     method: 'PUT',
 
-    body: JSON.stringify( element ),
+    body: JSON.stringify( data[0] ),
 
     headers: {
       'Content-type': 'application/json'
