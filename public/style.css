@@ -11,7 +11,7 @@ body {
 main {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-start;
     flex-wrap: wrap;
     min-height: 100vh;
@@ -23,15 +23,16 @@ main {
 .elemBox {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: flex-start;
     /* align-items: stretch; */
     width: 10rem;
     height: 10rem;
     margin: 0.5rem;
+    padding-left: 0.5rem;
     border-radius: 7%;
     background-color: #ffffff;
-    border: 0.5px solid #cccccc;
+    border: 0.2px solid #cccccc;
 }
 
 .name {
@@ -64,3 +65,19 @@ textarea {
 .celtic { background-color: #FBEAF0; }
 .aramaic { background-color: #EAF3DE; }
 .default-origin { background-color: #F0F0F0; }
+
+/* animation */
+.rotate-in {
+    animation: rotate-in 0.5s ease-out;
+}
+
+@keyframes rotate-in {
+    from {
+        transform: rotate(-200deg);
+        opacity: 0;
+    }
+    to {
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+}

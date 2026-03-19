@@ -202,7 +202,7 @@
       "origin": "Nordiskt",
       "nameday": "27 november",
       "meaning": "Gudarnas styrka"
-      },
+    },
     {
       "id": "31",
       "name": "Filip",
@@ -272,7 +272,7 @@
       "origin": "Tyskt",
       "nameday": "25 augusti",
       "meaning": "Berömd kämpe"
-      },
+    },
     {
       "id": "41",
       "name": "Jonathan",
@@ -443,4 +443,4 @@
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
-  }
+}

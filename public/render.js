@@ -16,6 +16,7 @@ export function renderElements( elems = [] ) {
     elems.forEach(elem => {
         const elemDiv = document.createElement( "div" );
         elemDiv.classList.add("elemBox");
+         elemDiv.classList.add("rotate-in");
         elemDiv.id = elem.id;
         
 
