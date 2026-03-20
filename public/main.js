@@ -1,28 +1,17 @@
 import { renderElements } from "./render.js";
+import { getAll, addElement, updateElement, fetchElementByName } from "./app.js";
 
 let elements = [];
-// buttons
- const getAll_btn = document.getElementById( 'get-all' );
- const getOne_btn = document.getElementById( 'get-one' );
- const add_btn = document.getElementById( 'add' );
- const update_btn = document.getElementById( 'update' );
 
+// buttons
+ const getOne_btn = document.getElementById( 'get-one' );
 
 // inputs
  const nameToRead = document.getElementById( 'name-input' )
- const delete_btn = document.getElementById( 'delete' );
- const nameToDelete = document.getElementById( 'delete-input' )
- const nameInput = document.getElementById( 'add-name-input' );
- const meaningInput = document.getElementById( 'add-meaning-input' );
- const originInput = document.getElementById( 'add-origin-input' );
- const namedayInput = document.getElementById( 'add-nameday-input' );
- const updateNameInput = document.getElementById( 'update-name-input' );
- const updateMeaningInput = document.getElementById( 'update-meaning-input' );
- const updateOriginInput = document.getElementById( 'update-origin-input' );
- const updateNamedayInput = document.getElementById( 'update-nameday-input' );
 
- // show all
-getAll_btn.addEventListener('click', async () => {
+ const errorMessage = document.getElementById( 'error-message' );
+
+document.addEventListener( 'DOMContentLoaded', async () => {
   elements = await getAll();
   console.log(elements);
   renderElements(elements);
@@ -35,55 +24,157 @@ async function readNameToFetch() {
     if ( nameToRead.value.length == 0 ) {
       return;
     }
-
-    const data = await fetchElementById( nameToRead.value );
-    renderElements( data );
-    console.log( data );
-}
-
-// delete by name
-delete_btn.addEventListener('click', readNameToDelete);
-
-async function readNameToDelete() {
-    if ( nameToDelete.value.length == 0 ) {
+    
+    const foundName = await fetchElementByName( nameToRead.value );
+    if ( foundName.length === 0 ) {
+      errorMessage.textContent = "Inget namn hittades med namnet: " + nameToRead.value;
+      errorMessage.style.display = "block";
+      setTimeout(() => {
+        errorMessage.style.display = "none";
+      }, 2000);
       return;
     }
+    elements = await getAll();
+    const element = elements.find( elem => elem.name.toLowerCase() === nameToRead.value.toLowerCase() );
+    elements.splice( elements.indexOf( element ), 1 );
+    elements.unshift( element );
+    renderElements( elements );
+    addAnimation( element.id );
+  }
 
-    const res = await deleteElementById( nameToDelete.value );
-    console.log( res );
+// add animation to found element
+function addAnimation( elementId ) {
+  const foundElement = document.getElementById( elementId );
+
+  foundElement.classList.add( "flash-found" );
+  foundElement.style.animation = 'rotate-in 0.5s ease-out, flash-found-bg 2.5s 0.5s ease-in-out';
+  setTimeout( () => {
+    if ( foundElement ) {
+    foundElement.classList.remove( "flash-found" );
+    foundElement.style.animation = '';
+    }
+
+  }, 3000 );
 }
 
-// add new element
-add_btn.addEventListener('click', add);
-async function add() {
-if ( nameInput.value.length == 0 || meaningInput.value.length == 0 ) {
+function addFieldsForNewElement() {
+  const parentElem = document.getElementById("empty");
+  const addLabledText = parentElem.querySelector(".emptyname-label");
+  parentElem.removeChild(addLabledText);
+  const elemName = document.createElement("h3");
+  elemName.textContent = "Nytt namn";
+  elemName.classList.add("name", "editable");
+  elemName.setAttribute("contenteditable", "true");
+
+  const elemMeaning = document.createElement("p");
+  elemMeaning.textContent = "Ny betydelse";
+  elemMeaning.classList.add("editable");
+  elemMeaning.setAttribute("contenteditable", "true");
+
+  const elemOrigin = document.createElement("p");
+  elemOrigin.textContent = "Ny ursprung";
+  elemOrigin.classList.add("origin", "editable");
+  elemOrigin.setAttribute("contenteditable", "true");
+
+  const elemNameday = document.createElement("p");
+  elemNameday.textContent = "Ny namnsdag";
+  elemNameday.classList.add("nameday", "editable");
+  elemNameday.setAttribute("contenteditable", "true");
+
+  const imgDiv = document.createElement("div");
+  imgDiv.classList.add("imgDiv");
+
+  const done = document.createElement("img");
+
+  done.src = "./imgs/done.png";
+
+  done.classList.add("done");
+
+
+  imgDiv.appendChild(done);
+
+
+  done.setAttribute( "style", "display: flex" ); 
+  done.classList.add( "pulse" );
+
+  parentElem.appendChild(elemName);
+  parentElem.appendChild(elemMeaning);
+  parentElem.appendChild(elemOrigin);
+  parentElem.appendChild(elemNameday);
+  parentElem.appendChild(imgDiv);
+}
+
+// create new element
+export async function create() {
+  const parentElem = document.getElementById("empty");
+  if (parentElem.querySelector('h3')) {
     return;
   }
-  const newName = {
-    name: nameInput.value,
-    meaning: meaningInput.value,
-    origin: originInput.value  || "",
-    nameday: namedayInput.value || ""
-  };
-  const res = await addElement( newName );
-  console.log( res );
+  // add fields for new element
+  addFieldsForNewElement();
+  const doneBtn = parentElem.querySelector(".done");
+  doneBtn.addEventListener('click', readFieldsForNewElement);
 }
 
-// update element
-update_btn.addEventListener('click', update);
+function truncate(str, n) {
+  return (str.length > n) ? str.slice(0, n) + "…" : str;
+}
+  
+// save new element
+async function readFieldsForNewElement() {
+  const parentElem = document.getElementById("empty");
+  const fields = parentElem.querySelectorAll(".editable");
 
-async function update() {
-  if ( updateNameInput.value.length == 0 ) {
-    return;
+  const newElement = {
+    name: truncate(fields[0].textContent, 20),
+    meaning: truncate(fields[1].textContent, 40),
+    origin: truncate(fields[2].textContent, 20),
+    nameday: truncate(fields[3].textContent, 20)
+  };
+  const res = await addElement(newElement);
+  elements = await getAll();
+  const addedElem = await fetchElementByName( newElement.name );
+  if ( addedElem ) {
+      elements.splice( elements.indexOf( addedElem[0] ), 1 );
+      elements.unshift( addedElem[0] );
+      renderElements(elements);
+      addAnimation( addedElem[0].id );
   }
-  const updatedName = {
-    name: updateNameInput.value,
-    meaning: updateMeaningInput.value,
-    origin: updateOriginInput.value  || "",
-    nameday: updateNamedayInput.value || ""
-  };
-  console.log( updatedName );
-  const res = await updateElement( updatedName );
-  console.log( res );
-
 }
+
+export async function edit( id ) {
+  const parentElem = document.getElementById( id );
+  const doneBtn = document.getElementById( "done-" + id );
+
+
+  // change "done" button style and properties
+  doneBtn.setAttribute( "style", "display: flex" ); 
+  doneBtn.classList.add( "pulse" );
+
+  const nameField = parentElem.querySelector( "h3" );
+
+  // add event listener to "done" button
+  doneBtn.addEventListener( 'click', async () => {
+  const fields = parentElem.querySelectorAll( "p" );
+
+  const updatedElement = {
+      id: id,
+      name: nameField.textContent,
+      meaning: truncate(fields[0].textContent, 40),
+      origin: truncate(fields[1].textContent, 20),
+      nameday: truncate(fields[2].textContent, 20)
+    };
+    console.log( updatedElement );
+    const res = await updateElement( updatedElement );
+    for (const field of fields) {
+      field.setAttribute( "contenteditable", "false" );
+      field.classList.remove( "editable" );
+    }
+    doneBtn.setAttribute( "style", "display: none" );
+  });
+
+  const fields = parentElem.querySelectorAll( "p" );
+  fields.forEach(field => field.setAttribute( "contenteditable", "true" ));
+  fields.forEach(field => field.classList.add( "editable" ));
+}
+

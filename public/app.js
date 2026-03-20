@@ -1,41 +1,49 @@
+import { renderElements } from "./render.js";
+
 const BASE_URL = 'http://localhost:3000/names';
 
 // fetch all
-async function getAll() {
+export async function getAll() {
   const res = await fetch(BASE_URL);
   const data = await res.json();
   return data;
 }
 
 // fetch by name
-async function fetchElementById( name ) {
+export async function fetchElementByName( name ) {
   const res = await fetch( `${BASE_URL}?name=${name}` );
   const data = await res.json();
-  console.log( data )
+  return data;
+}
+
+
+// fetch by id
+async function fetchElementById( id ) {
+  const res = await fetch( `${BASE_URL}/${id}` );
+  const data = await res.json();
   return data;
 }
 
 // delete by name
-async function deleteElementById( name ) {
-  const data = await fetchElementById( name );
+export async function deleteElementById( id ) {
+  const data = await fetchElementById( id );
 
-  for (const elem of data) {
-    const res = await fetch( `${BASE_URL}/${parseInt( elem.id, 10 )}`, { 
-      method: 'DELETE',
-      headers: {
-      'Content-type': 'application/json'
-    }
-    });
-    //const data = await res.json();
-    console.log( res );
+  const res = await fetch( `${BASE_URL}/${parseInt( id, 10 )}`, { 
+    method: 'DELETE',
+    headers: {
+    'Content-type': 'application/json'
   }
+  });
 
-  return data;
+  const elements = await getAll();
+  renderElements(elements);
+
+  return res;
 }
 
 // add new name
-async function addElement( element ) {
-  const data = await fetchElementById( element.name );
+export async function addElement( element ) {
+  const data = await fetchElementByName( element.name );
   if ( data.length > 0 ) {
     console.log( "Element with this name already exists" );
     return;
@@ -61,30 +69,23 @@ async function addElement( element ) {
 }
 
 // update
-async function updateElement( element ) {
-  const data = await fetchElementById( element.name );
-  console.log( data );
-  if ( data.length === 0 ) {
-    console.log( "Element with this name does not exist" );
+export async function updateElement( element ) {
+
+  if ( element.meaning.length === 0 ) {
+   return;
+  }
+  if ( element.origin.length === 0 ) {
+    return;
+  }
+  if ( element.nameday.length === 0 ) {
     return;
   }
 
-  if ( element.meaning.length > 0 ) {
-    data[0].meaning = element.meaning;
-  }
-  if ( element.origin.length > 0 ) {
-    data[0].origin = element.origin;
-  }
-  if ( element.nameday.length > 0 ) {
-    data[0].nameday = element.nameday;
-  }
-
-  const id = parseInt( data[0].id, 10 );
   // request
-  const res = await fetch( `${BASE_URL}/${id}`, { 
+  const res = await fetch( `${BASE_URL}/${element.id}`, { 
     method: 'PUT',
 
-    body: JSON.stringify( data[0] ),
+    body: JSON.stringify( element ),
 
     headers: {
       'Content-type': 'application/json'
@@ -92,5 +93,5 @@ async function updateElement( element ) {
   });
   console.log( res );
 
-  return data;
+  return res;
 }

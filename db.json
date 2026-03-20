@@ -1,123 +1,53 @@
 {
   "names": [
     {
-      "id": "1",
-      "name": "Erik",
-      "origin": "Nordiskt",
-      "nameday": "18 maj",
-      "meaning": "Den evige härskaren"
-    },
-    {
       "id": "3",
       "name": "Lars",
+      "meaning": "Den lagerkrönta",
       "origin": "Latinskt",
-      "nameday": "10 augusti",
-      "meaning": "Den lagerkrönta"
+      "nameday": "10 augusti"
     },
     {
       "id": "4",
-      "name": "Maria",
+      "name": "David",
+      "meaning": "Den älskade",
       "origin": "Hebreiskt",
-      "nameday": "15 augusti",
-      "meaning": "Den älskade"
+      "nameday": "15 augusti"
     },
     {
       "id": "5",
       "name": "Karl",
+      "meaning": "Den frie mannen",
       "origin": "Germanskt",
-      "nameday": "28 januari",
-      "meaning": "Den frie mannen"
-    },
-    {
-      "id": "6",
-      "name": "Kristina",
-      "origin": "Grekiskt",
-      "nameday": "24 juli",
-      "meaning": "Kristi efterföljare"
+      "nameday": "28 januari"
     },
     {
       "id": "7",
-      "name": "Johan",
+      "name": "Johannes",
+      "meaning": "Gud är nådig",
       "origin": "Hebreiskt",
-      "nameday": "24 juni",
-      "meaning": "Gud är nådig"
+      "nameday": "24 juni"
     },
     {
       "id": "8",
       "name": "Eva",
+      "meaning": "Den levande",
       "origin": "Hebreiskt",
-      "nameday": "24 december",
-      "meaning": "Den levande"
-    },
-    {
-      "id": "9",
-      "name": "Anders",
-      "origin": "Grekiskt",
-      "nameday": "30 november",
-      "meaning": "Den manlige"
+      "nameday": "24 december"
     },
     {
       "id": "10",
       "name": "Birgitta",
+      "meaning": "Den höga, den starka",
       "origin": "Keltiskt",
-      "nameday": "7 oktober",
-      "meaning": "Den höga, den starka"
-    },
-    {
-      "id": "11",
-      "name": "Magnus",
-      "origin": "Latinskt",
-      "nameday": "19 augusti",
-      "meaning": "Den store"
-    },
-    {
-      "id": "12",
-      "name": "Sara",
-      "origin": "Hebreiskt",
-      "nameday": "19 september",
-      "meaning": "Furstinna"
-    },
-    {
-      "id": "13",
-      "name": "Peter",
-      "origin": "Grekiskt",
-      "nameday": "29 juni",
-      "meaning": "Klippa, sten"
-    },
-    {
-      "id": "14",
-      "name": "Ingrid",
-      "origin": "Nordiskt",
-      "nameday": "2 september",
-      "meaning": "Ing är skön"
-    },
-    {
-      "id": "15",
-      "name": "Olof",
-      "origin": "Nordiskt",
-      "nameday": "29 juli",
-      "meaning": "Den helige förfadern"
+      "nameday": "7 oktober"
     },
     {
       "id": "16",
       "name": "Karin",
+      "meaning": "Den rena",
       "origin": "Grekiskt",
-      "nameday": "25 november",
-      "meaning": "Den rena"
-    },
-    {
-      "id": "17",
-      "name": "Gustav",
-      "origin": "Germanskt",
-      "nameday": "1 juni",
-      "meaning": "Gudarnas stav"
-    },
-    {
-      "id": "18",
-      "name": "Helena",
-      "origin": "Grekiskt",
-      "nameday": "31 juli",
-      "meaning": "Den lysande, facklan"
+      "nameday": "25 november"
     },
     {
       "id": "19",
@@ -125,13 +55,6 @@
       "origin": "Grekiskt",
       "nameday": "6 december",
       "meaning": "Folkets seger"
-    },
-    {
-      "id": "20",
-      "name": "Margareta",
-      "origin": "Grekiskt",
-      "nameday": "20 juli",
-      "meaning": "Pärla"
     },
     {
       "id": "21",
@@ -262,9 +185,9 @@
     {
       "id": "39",
       "name": "Simon",
+      "meaning": "Den som hör",
       "origin": "Hebreiskt",
-      "nameday": "28 oktober",
-      "meaning": "Den som hör"
+      "nameday": "29 oktober"
     },
     {
       "id": "40",
@@ -435,11 +358,18 @@
       "meaning": "Alv, naturväsen"
     },
     {
-      "id": "64",
-      "name": "d",
-      "meaning": "kk",
-      "origin": "",
-      "nameday": ""
+      "id": "65",
+      "name": "Lili",
+      "meaning": "Ny betydelse",
+      "origin": "Ny ursprung",
+      "nameday": "Ny namnsdag"
+    },
+    {
+      "id": "66",
+      "name": "Nytt namn",
+      "meaning": "Ny betydelse",
+      "origin": "Ny ursprung",
+      "nameday": "Ny namnsdag"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
