@@ -9,7 +9,7 @@ let elements = [];
 // inputs
  const nameToRead = document.getElementById( 'name-input' )
 
- const errorMessage = document.getElementById( 'error-message' );
+ export const errorMessage = document.getElementById( 'error-message' );
 
 document.addEventListener( 'DOMContentLoaded', async () => {
   elements = await getAll();

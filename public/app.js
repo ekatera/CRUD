@@ -1,5 +1,5 @@
 import { renderElements } from "./render.js";
-
+import { errorMessage } from "./main.js";
 const BASE_URL = 'http://localhost:3000/names';
 
 // fetch all
@@ -11,21 +11,43 @@ export async function getAll() {
 
 // fetch by name
 export async function fetchElementByName( name ) {
-  const res = await fetch( `${BASE_URL}?name=${name}` );
-  const data = await res.json();
-  return data;
+  try {
+    const res = await fetch( `${BASE_URL}?name=${encodeURIComponent(name)}` );
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching element by name:", error);
+    errorMessage.textContent = "Ett fel inträffade vid hämtning av namnet: " + name;
+    errorMessage.style.display = "block";
+    setTimeout(() => {
+      errorMessage.style.display = "none";
+    }, 2000);
+
+    return [];
+  }    
 }
 
 
 // fetch by id
 async function fetchElementById( id ) {
+  try {
   const res = await fetch( `${BASE_URL}/${id}` );
   const data = await res.json();
   return data;
+  } catch (error) {
+    console.error("Error fetching element by id:", error);
+    errorMessage.textContent = "Ett fel inträffade vid hämtning av namnet med id: " + id;
+    errorMessage.style.display = "block";
+    setTimeout(() => {
+      errorMessage.style.display = "none";
+    }, 2000);
+    return null;
+  }
 }
 
 // delete by name
 export async function deleteElementById( id ) {
+  try {
   const data = await fetchElementById( id );
 
   const res = await fetch( `${BASE_URL}/${parseInt( id, 10 )}`, { 
@@ -39,10 +61,21 @@ export async function deleteElementById( id ) {
   renderElements(elements);
 
   return res;
+  } catch (error) {
+    console.error("Error deleting element by id:", error);
+    errorMessage.textContent = "Ett fel inträffade vid borttagning av namnet med id: " + id;
+    errorMessage.style.display = "block";
+    setTimeout(() => {
+      errorMessage.style.display = "none";
+    }, 2000);
+    return null;
+  }
+
 }
 
 // add new name
 export async function addElement( element ) {
+  try {
   const data = await fetchElementByName( element.name );
   if ( data.length > 0 ) {
     console.log( "Element with this name already exists" );
@@ -66,6 +99,16 @@ export async function addElement( element ) {
   console.log( res );
 
   return data;
+  } catch (error) {
+    console.error("Error adding element:", error);
+    errorMessage.textContent = "Ett fel inträffade vid tillägg av namnet: " + element.name;
+    errorMessage.style.display = "block";
+    setTimeout(() => {
+      errorMessage.style.display = "none";
+    }, 2000);
+    return null;
+  }
+
 }
 
 // update
@@ -82,6 +125,7 @@ export async function updateElement( element ) {
   }
 
   // request
+  try {
   const res = await fetch( `${BASE_URL}/${element.id}`, { 
     method: 'PUT',
 
@@ -94,4 +138,13 @@ export async function updateElement( element ) {
   console.log( res );
 
   return res;
+} catch (error) {
+  console.error("Error updating element:", error);
+  errorMessage.textContent = "Ett fel inträffade vid uppdatering av namnet: " + element.name;
+  errorMessage.style.display = "block"; 
+  setTimeout(() => {
+    errorMessage.style.display = "none";
+  }, 2000);
+  return null;
+ }
 }
